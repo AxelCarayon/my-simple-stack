@@ -11,46 +11,66 @@ public class SimpleStackTest {
     Item i;
     SimpleStack s;
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         i = new Item();
         s = new SimpleStack();
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
     }
 
     @Test
     public void isEmpty() {
-        assertTrue(s.isEmpty());
-        s.push(i);
-        assertFalse(s.isEmpty());
+        try{
+            assertTrue(s.isEmpty());
+            s.push(i);
+            assertFalse(s.isEmpty());
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     @Test
     public void getSize() {
-        assertEquals(0,s.getSize());
-        s.push(i);
-        assertEquals(1,s.getSize());
+        try{
+            assertEquals(0,s.getSize());
+            s.push(i);
+            assertEquals(1,s.getSize());
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     @Test
     public void push() {
-        assertEquals(0,s.getSize());
-        s.push(i);
-        assertEquals(1,s.getSize());
+        try{
+            assertEquals(0,s.getSize());
+            s.push(i);
+            assertEquals(1,s.getSize());
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     @Test
     public void peek() {
-        s.push(i);
-        assertEquals(s.peek(),i);
+        try{
+            s.push(i);
+            assertEquals(s.peek(),i);
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     @Test
     public void pop() {
-        s.push(i);
-        s.pop();
-        assertTrue(s.isEmpty());
+        try{
+            s.push(i);
+            s.pop();
+            assertTrue(s.isEmpty());
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }
