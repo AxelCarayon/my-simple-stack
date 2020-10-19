@@ -3,6 +3,7 @@ package deqo.acar;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +11,7 @@ public class SimpleStackTest {
 
     Item i;
     SimpleStack s;
+    SimpleStack s2;
 
     /**
      * Crée un item et le stack qui sera utilisé.
@@ -18,6 +20,7 @@ public class SimpleStackTest {
     public void setUp() {
         i = new Item();
         s = new SimpleStack();
+        s2 = mock(SimpleStack.class);
     }
 
     @After
@@ -29,6 +32,11 @@ public class SimpleStackTest {
      */
     @Test
     public void isEmpty() {
+        when(s2.isEmpty()).thenReturn(true);
+        System.out.println(s2.isEmpty());
+        when(!s2.isEmpty()).thenReturn(false);
+        s2.push(i);
+        System.out.println(s2.isEmpty());
         try{
             assertTrue(s.isEmpty());
             s.push(i);
